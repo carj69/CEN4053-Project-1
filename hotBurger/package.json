@@ -1,5 +1,5 @@
 {
-	"name": "hotburger",
+  	"name": "hotburger",
   	"version": "1.0.0",
   	"description": "This is the hot burger api",
   	"main": "app.js",
@@ -11,6 +11,6 @@
   	"dependencies": {
     		"express": "^4.17.1",
     		"fs": "0.0.1-security",
-    		"morgan": "^1.9.1"
+    	"morgan": "^1.9.1"
   	}
 }
