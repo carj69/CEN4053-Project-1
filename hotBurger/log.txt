@@ -1,0 +1,15 @@
+GET /:80 404 142 - 3.049 ms
+GET /:80 404 142 - 0.296 ms
+GET /:80/version 404 150 - 0.251 ms
+GET /version 200 42 - 2.322 ms
+GET /favicon.ico 404 150 - 0.146 ms
+GET /logs 200 159 - 12.362 ms
+GET /logs 200 189 - 1.494 ms
+GET /logs 200 218 - 1.246 ms
+GET /logs 200 247 - 1.250 ms
+GET /logs 200 276 - 1.066 ms
+GET /logs 200 305 - 4.833 ms
+GET /logs 200 334 - 1791.786 ms
+GET /logs 200 366 - 1.219 ms
+GET /logs 200 395 - 6.712 ms
+GET /logs 200 424 - 1337.577 ms

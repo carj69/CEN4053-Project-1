@@ -1,0 +1,23 @@
+{
+  "name": "cen4053-project-1",
+  "version": "1.0.0",
+  "description": "burger service",
+  "main": "burgers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carj69/CEN4053-Project-1.git"
+  },
+  "author": "Charlie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carj69/CEN4053-Project-1/issues"
+  },
+  "homepage": "https://github.com/carj69/CEN4053-Project-1#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  }
+}
