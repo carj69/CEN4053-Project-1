@@ -1,16 +1,24 @@
+/**************** ORDERING SERVICE ******************************
+*																*
+*	Author: Charles Redding										*
+*	Git:	https://github.com/carj69/CEN4053-Project-1.git		*
+*	email:	car69@students.uwf.edu							*
+*																*
+****************************************************************/
+
 const express = require("express");
 const morgan = require("morgan");
 const json = require("morgan-json");
 const fs = require("fs");
 
-let logStream = fs.createWriteStream("./log.txt", {flags: "a"});
+let app = express();
+let logStream = fs.createWriteStream("./log.json", {flags: "a"});
 const logFormat = json({
 	Date: ":date[web]",
 	Method: ":method",
 	Route: ":url",
 	Status: ":status"
 });
-let app = express();
 
 //sets open port
 app.set("port", 80);
@@ -20,12 +28,6 @@ app.use(morgan(':method :url :status :res[content-length] - :response-time ms', 
 /*	this is the version page */
 app.get("/version", function(req, res) {
 	res.send("This is version 1 of the HotBurger service");
-});
-
-/*	this is the log page */
-app.get("/logs", function(req, res) {
-	let r = fs.readFileSync("./log.txt", "UTF8");
-	res.send(r);
 });
 
 /*	This is the menu page */
