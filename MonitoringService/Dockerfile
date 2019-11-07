@@ -16,4 +16,4 @@ RUN npm install
 EXPOSE 80
 
 # Start the webserver.
-CMD ["node","app.js"]
+CMD ["node","monitoringService.js"]

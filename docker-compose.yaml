@@ -1,0 +1,20 @@
+## Reference https://linuxhint.com/docker_volumes_docker_compose/
+
+version: "1.0"
+    services:
+        monitoring:
+            image: monitoringService
+            networks: -frontend
+            ports:
+                - "80:80"
+            volumes:
+                - logVolume: /logs
+        ordering:
+            image: orderingService
+            networks: -frontend
+            ports:
+                - "81:81"
+            volumes:
+                - logVolume: /logs
+    volumes:
+        logVolume:

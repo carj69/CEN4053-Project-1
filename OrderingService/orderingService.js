@@ -23,6 +23,14 @@ const logFormat = json({
 //sets open port
 app.set("port", 80);
 
+// Routing Middleware.
+app.use(
+	morgan(logFormat, {
+		stream: accessLogStream
+	})
+);
+
+
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms', {stream: logStream}));
 
 /*	this is the version page */
