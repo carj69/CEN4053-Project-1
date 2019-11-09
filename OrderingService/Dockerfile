@@ -16,4 +16,4 @@ RUN npm install
 EXPOSE 80
 
 # Start the webserver.
-CMD ["node","orderingService.js"]
+CMD ["node","orderingApp.js"]

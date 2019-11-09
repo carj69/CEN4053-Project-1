@@ -1,20 +1,39 @@
-## Reference https://linuxhint.com/docker_volumes_docker_compose/
+## Reference 
+## https://linuxhint.com/docker_volumes_docker_compose/
+## https://docs.docker.com/compose/compose-file/#volumes
 
-version: "1.0"
-    services:
-        monitoring:
-            image: monitoringService
-            networks: -frontend
-            ports:
-                - "80:80"
-            volumes:
-                - logVolume: /logs
-        ordering:
-            image: orderingService
-            networks: -frontend
-            ports:
-                - "81:81"
-            volumes:
-                - logVolume: /logs
-    volumes:
-        logVolume:
+version: "3"
+
+services:
+    ordering:
+        build: 
+            context: ./OrderingService
+            args:
+                buildno: 1
+        image: orderingService
+        ports:
+            - "8080:80"
+        volumes:
+          - type: volume
+            source: logsVolume
+            target: ./log.json
+
+          - type: volume
+            source: ordersVolume
+            target: ./orderType.json
+
+    monitoring:
+        build: 
+            context: ./MonitoringService
+            args:
+                buildno: 1
+        image: monitoringService
+        ports:
+            - "81:81"
+        volumes:
+            - logsVolume: ./logs.json
+            - ordersVolume: ./orders.json
+            
+volumes:
+    logsVolume:
+    ordersVolume:

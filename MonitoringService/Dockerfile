@@ -13,7 +13,7 @@ WORKDIR /OrderingService
 RUN npm install
 
 # Expose the port
-EXPOSE 80
+EXPOSE 81
 
 # Start the webserver.
-CMD ["node","monitoringService.js"]
+CMD ["node","monitoringApp.js"]

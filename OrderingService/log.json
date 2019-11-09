@@ -1,0 +1,4 @@
+{"Date":"Sat, 09 Nov 2019 22:15:46 GMT","Method":"GET","Route":"/purchase/Cookie/10","Status":"500"}
+GET /purchase/Cookie/10 500 1192 - 4.262 ms
+{"Date":"Sat, 09 Nov 2019 22:16:19 GMT","Method":"GET","Route":"/purchase/Cookie/10","Status":"200"}
+GET /purchase/Cookie/10 200 27 - 50.608 ms
