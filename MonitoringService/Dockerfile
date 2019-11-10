@@ -9,7 +9,7 @@ RUN apk update && apk add nodejs && apk add git  && apk add npm
 RUN mkdir hotBurger
 
 COPY ./monitoringApp.js ./hotBurger/app.js
-COPY ./../node_modules/ ./node_modules/
+COPY ./node_modules/ ./hotBurger/node_modules/
 WORKDIR ./hotburger
 
 # install node modules
