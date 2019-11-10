@@ -10,7 +10,7 @@ RUN mkdir hotBurger
 
 COPY ./orderingApp.js ./hotBurger/app.js
 COPY ./node_modules/ ./hotBurger/node_modules/
-WORKDIR ./hotBurger
+WORKDIR ./hotburger
 
 
 # install node modules
