@@ -10,7 +10,7 @@ RUN mkdir hotBurger
 
 COPY ./monitoringApp.js ./hotBurger/app.js
 COPY ./node_modules/ ./hotBurger/node_modules/
-COPY ./orders.json ./hotBurger/orders.json
+# COPY ./orders.json ./hotBurger/orders.json
 WORKDIR ./hotburger
 
 # install node modules
