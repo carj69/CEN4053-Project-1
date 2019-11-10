@@ -6,34 +6,27 @@ version: "3"
 
 services:
     ordering:
-        build: 
+        build:
             context: ./OrderingService
             args:
                 buildno: 1
-        image: orderingService
+        volumes:
+            - ./logs.json
+            - ./orders.json
         ports:
             - "8080:80"
-        volumes:
-          - type: volume
-            source: logsVolume
-            target: ./log.json
-
-          - type: volume
-            source: ordersVolume
-            target: ./orderType.json
 
     monitoring:
-        build: 
+        build:
             context: ./MonitoringService
             args:
                 buildno: 1
-        image: monitoringService
+        volumes:
+            - ./logs.json
+            - ./orders.json
         ports:
             - "81:81"
-        volumes:
-            - logsVolume: ./logs.json
-            - ordersVolume: ./orders.json
-            
+
 volumes:
     logsVolume:
     ordersVolume:
