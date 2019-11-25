@@ -19,7 +19,7 @@ const logFormat = json({
 	Date: ":date[web]",
 	Method: ":method",
 	Route: ":url",
-    Status: ":status"
+    Status: ":status",
     Response: ":res[content-length]",
     Response_time: ":response-time ms"
 });
