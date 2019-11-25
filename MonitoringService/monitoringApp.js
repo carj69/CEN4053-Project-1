@@ -9,15 +9,19 @@
 const express = require("express");
 const morgan = require("morgan");
 const json = require("morgan-json");
+const app = express();
 const fs = require("fs");
+const data = fs.readFileSync("./orders.json", "utf8");
 
-let app = express();
-let logStream = fs.createWriteStream("./logs.json", {flags: "a"});
+let logStream = fs.createWriteStream("./logs.json", { flags: "a" });
+
 const logFormat = json({
 	Date: ":date[web]",
 	Method: ":method",
 	Route: ":url",
-	Status: ":status"
+    Status: ":status"
+    Response: ":res[content-length]",
+    Response_time: ":response-time ms"
 });
 
 // sets open port
@@ -28,12 +32,12 @@ app.use(
 );
 
 /* ############# Monitoring services ################# */
-const data = fs.readFileSync("./orders.json", "utf8");
-const orders = JSON.parse(data);
 
 /* Total revenue */
 app.get("/gettotal", (req, res) => {
-	let total = 0;
+    let total = 0;
+    orders = JSON.parse(file);
+
 	// Sum the totals
 	orders.forEach(item => { 
 		total += item.quantity * item.price; 
@@ -45,21 +49,22 @@ app.get("/gettotal", (req, res) => {
 
 /* Top selling object */
 app.get("/gettopseller", (req, res) => {
-	let bestSeller = orders[0];
+    orders = JSON.parse(file);
+    let bestSeller = orders[0];
+
 	// Checks each item to find one with most sales
 	orders.forEach(item => {
-		if (item.quantity > bestSeller.quantity) {
+        if (item.quantity * topSeller.price > bestSeller.quantity * topSeller.price) {
 			bestSeller = item;
 		}
 	});
-	res.send(bestSeller);
+    res.send(`${topSeller.name} sold ${topSeller.quantity}`);
 });
 
 /* Top requested object */
 app.get("/getrequestcount", (req, res) => {
-    let i;
     let count = 0;
-    fs.createReadStream("logs.json")
+    let logs = fs.createReadStream("logs.json")
 		.on("data", function(chunk) {
 			for (i = 0; i < chunk.length; ++i) 
 				if (chunk[i] == 10) 
@@ -82,6 +87,7 @@ app.get("/getlastrequeststatus", (req, res) => {
 /* Most recent request time */
 app.get("/getlastrequesttime", (req, res) => {
 	// Last entry should be at line 1
+    const readLastLines = require("read-last-lines");
     readLastLines.read("logs.json", 1).then(result => {
 		let jsonResult = JSON.parse(result);
 		res.send(jsonResult.Date);
