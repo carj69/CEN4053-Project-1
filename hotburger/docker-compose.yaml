@@ -2,31 +2,31 @@
 ## https://linuxhint.com/docker_volumes_docker_compose/
 ## https://docs.docker.com/compose/compose-file/#volumes
 
-version: "3"
+version: '3'
 
 services:
     ordering:
         build:
-            context: ./OrderingService
+            context: .
+            dockerfile: ./OrderingService/Dockerfile
             args:
                 buildno: 1
         volumes:
-            - ./logs.json
-            - ./orders.json
+            - ./log.json:./log.json
+            - ./orderType.json:./orderType.json
         ports:
-            - "8080:80"
+            - "80:80"
 
     monitoring:
         build:
-            context: ./MonitoringService
+            context: .
+            dockerfile: ./MonitoringService/Dockerfile
             args:
                 buildno: 1
         volumes:
-            - ./logs.json
-            - ./orders.json
+            - ./orderType.json:./orderType.json
+            - ./log.json:./log.json
         ports:
             - "81:81"
-
-volumes:
-    logsVolume:
-    ordersVolume:
+    cache:
+        image: "redis:latest"
