@@ -2,7 +2,7 @@
 *																*
 *	Author: Charles Redding										*
 *	Git:	https://github.com/carj69/CEN4053-Project-1.git		*
-*	email:	car69@students.uwf.edu							*
+*	email:	car69@students.uwf.edu							    *
 *																*
 ****************************************************************/
 
