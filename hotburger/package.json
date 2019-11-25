@@ -1,24 +1,18 @@
 {
-  "name": "cen4053-project-1",
+  "name": "hotburger",
   "version": "1.0.0",
-  "description": "burger service",
-  "main": "burgers.js",
+  "description": "This is the hot burger api",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/carj69/CEN4053-Project-1.git"
-  },
-  "author": "Charlie",
+  "author": "Cesar Santiago and Sean McMillon",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/carj69/CEN4053-Project-1/issues"
-  },
-  "homepage": "https://github.com/carj69/CEN4053-Project-1#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "morgan": "^1.9.1",
-    "morgan-json": "^1.1.0"
+    "morgan-json": "^1.1.0",
+    "read-last-lines": "^1.7.1"
   }
 }
