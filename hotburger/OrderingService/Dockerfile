@@ -3,11 +3,11 @@ FROM nginx:alpine
 # install node and git
 RUN apk update && apk add nodejs && apk add git  && apk add npm
 
-RUN mkdir hotBurger
+RUN mkdir hotburger
 
-COPY ./orderingApp.js ./hotBurger/app.js
+COPY ./orderingApp.js ./hotburger/app.js
 COPY ./../package.json/ ./package.json/
-WORKDIR ./hotBurger
+WORKDIR ./hotburger
 
 
 # install node modules
