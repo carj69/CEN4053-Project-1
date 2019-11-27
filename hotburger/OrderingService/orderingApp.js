@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
 
 /*	this is the version page */
 app.get("/version", (req, res) => {
-	res.send("This is version 1.0 of the HotBurger service");
+	res.send("This is version 1.1 of the HotBurger service");
 });
 
 /*	This is the menu page */
