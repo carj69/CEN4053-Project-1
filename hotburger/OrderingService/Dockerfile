@@ -5,7 +5,7 @@ RUN apk update && apk add nodejs && apk add git  && apk add npm
 
 RUN mkdir hotburger
 
-COPY ./orderingApp.js ./hotburger/app.js
+COPY ./OrderingService/orderingApp.js ./hotburger/app.js
 COPY ./../package.json/ ./package.json/
 WORKDIR ./hotburger
 
