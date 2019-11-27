@@ -28,5 +28,16 @@ services:
             - ./log.json:./log.json
         ports:
             - "81:81"
+    harness:
+        build:
+            context: .
+            dockerfile: ./OrderingHarness/Dockerfile
+            args:
+                buildno: 1
+        volumes:
+            - ./OrderingHarness/availibility.json:./availibility.json
+        ports:
+            - "82:82"
+
     cache:
         image: "redis:latest"
