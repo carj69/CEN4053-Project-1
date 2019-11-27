@@ -5,8 +5,8 @@
 
 
 # build and start the containers using yaml file.
-docker-compose build
-docker-compose up
+cd hotBurger && docker-compose up
+
 
 # To stop use
 # docker-compose down
