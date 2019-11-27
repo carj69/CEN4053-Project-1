@@ -11,7 +11,7 @@ WORKDIR ./hotburger
 
 
 # install node modules
-RUN npm install
+# RUN npm install
 
 # Expose the port
 EXPOSE 80
