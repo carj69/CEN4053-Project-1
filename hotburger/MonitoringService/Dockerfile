@@ -8,12 +8,12 @@ RUN apk update && apk add nodejs && apk add git  && apk add npm
 
 RUN mkdir hotburger
 
-COPY ./monitoringApp.js ./hotburger/app.js
-COPY ./../package.json/ ./../package.json/
+COPY ./MonitoringService/monitoringApp.js ./hotburger/app.js
+COPY ./MonitoringService/package.json/ ./hotburger/package.json/
 WORKDIR ./hotburger
 
 # install node modules
-RUN npm install
+# RUN npm install
 
 # Expose the port
 EXPOSE 81
